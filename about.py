@@ -23,7 +23,7 @@ def init():
     program_name = Label(about, text='Симулятор инвест-приложения')
     program_name.grid(column=0, row=2, sticky='nw')
 
-    version = Label(about, text='Версия: 0.1 alpha')
+    version = Label(about, text='Версия: 0.1 beta')
     version.grid(column=0, row=3, sticky='nw')
 
     developer = Label(about, text='Разработчик: Виктор К.')

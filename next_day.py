@@ -75,3 +75,5 @@ def init():
                             variables['lukoil'][3], variables['lukoil'][4],
                             variables['lukoil'][5], variables['lukoil'][6],
                             variables['lukoil'][7], variables['lukoil'][7]+round(random.uniform(-2.50, 2.50), 2)]
+
+    messagebox.showinfo('', '{} {}'.format('День', variables['day'][0]))

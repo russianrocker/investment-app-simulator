@@ -14,6 +14,7 @@ def usd():
     usd_details=Toplevel()
     usd_details.title('USD: Динамика курса')
     usd_details.geometry('300x320')
+    usd_details.resizable(False, False)
 
     column1 = Label(usd_details, text='День', padx=5, pady=5)
     column1.grid(column=0, row=0)
@@ -105,6 +106,7 @@ def eur():
     eur_details=Toplevel()
     eur_details.title('EUR: Динамика курса')
     eur_details.geometry('300x320')
+    eur_details.resizable(False, False)
 
     column1 = Label(eur_details, text='День', padx=5, pady=5)
     column1.grid(column=0, row=0)
@@ -197,6 +199,7 @@ def chf():
     chf_details=Toplevel()
     chf_details.title('CHF: Динамика курса')
     chf_details.geometry('300x320')
+    chf_details.resizable(False, False)
 
     column1 = Label(chf_details, text='День', padx=5, pady=5)
     column1.grid(column=0, row=0)
@@ -289,6 +292,7 @@ def gbp():
     gbp_details=Toplevel()
     gbp_details.title('GBP: Динамика курса')
     gbp_details.geometry('300x320')
+    gbp_details.resizable(False, False)
 
     column1 = Label(gbp_details, text='День', padx=5, pady=5)
     column1.grid(column=0, row=0)
@@ -381,6 +385,7 @@ def jpy():
     jpy_details=Toplevel()
     jpy_details.title('JPY: Динамика курса')
     jpy_details.geometry('300x320')
+    jpy_details.resizable(False, False)
 
     column1 = Label(jpy_details, text='День', padx=5, pady=5)
     column1.grid(column=0, row=0)
@@ -473,6 +478,7 @@ def gazprom():
     gazprom_details=Toplevel()
     gazprom_details.title('Gazprom: Динамика цен')
     gazprom_details.geometry('300x320')
+    gazprom_details.resizable(False, False)
 
     column1 = Label(gazprom_details, text='День', padx=5, pady=5)
     column1.grid(column=0, row=0)
@@ -565,6 +571,7 @@ def avtovaz():
     avtovaz_details=Toplevel()
     avtovaz_details.title('Avtovaz: Динамика цен')
     avtovaz_details.geometry('300x320')
+    avtovaz_details.resizable(False, False)
 
     column1 = Label(avtovaz_details, text='День', padx=5, pady=5)
     column1.grid(column=0, row=0)
@@ -657,6 +664,7 @@ def aeroflot():
     aeroflot_details=Toplevel()
     aeroflot_details.title('Aeroflot: Динамика цен')
     aeroflot_details.geometry('300x320')
+    aeroflot_details.resizable(False, False)
 
     column1 = Label(aeroflot_details, text='День', padx=5, pady=5)
     column1.grid(column=0, row=0)
@@ -749,6 +757,7 @@ def nornickel():
     nornickel_details=Toplevel()
     nornickel_details.title('Nornickel: Динамика цен')
     nornickel_details.geometry('300x320')
+    nornickel_details.resizable(False, False)
 
     column1 = Label(nornickel_details, text='День', padx=5, pady=5)
     column1.grid(column=0, row=0)
@@ -841,6 +850,7 @@ def lukoil():
     lukoil_details=Toplevel()
     lukoil_details.title('Lukoil: Динамика цен')
     lukoil_details.geometry('300x320')
+    lukoil_details.resizable(False, False)
 
     column1 = Label(lukoil_details, text='День', padx=5, pady=5)
     column1.grid(column=0, row=0)

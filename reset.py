@@ -48,7 +48,7 @@ nornickel_bought_pcs = [0]
 lukoil_bought_pcs = [0]
 
 def init():
-    consent_to_reset = messagebox.askyesno('Предупреждение', 'Сбросить настройки программы? ВСЕ ДАННЫЕ БУДУТ СБРОШЕНЫ ДО ЗАВОДСКИХ!')
+    consent_to_reset = messagebox.askyesno('Предупреждение', 'Сбросить настройки программы? Текущий прогресс будет утрачен БЕЗВОЗВРАТНО!')
     
     if consent_to_reset == True:
         variables = shelve.open('variables.dat')
@@ -90,4 +90,4 @@ def init():
         variables.close()
 
 if __name__ == '__main__':
-    pass
+    init()

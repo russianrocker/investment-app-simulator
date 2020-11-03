@@ -21,15 +21,19 @@ def usd():
     summ_of_buy_spinbox.grid(column=1, row=0)
 
     def buy_confirmation():
-        confirmation = messagebox.askyesno('Предупреждение', '{} {} {} {} {}'.format('Купить', float(summ_of_buy_spinbox.get()), 'USD за', round(float(summ_of_buy_spinbox.get())*variables['usd_buy'][7], 2), 'RUB?'))
+        if round(float(summ_of_buy_spinbox.get())*variables['usd_buy'][7], 2) > variables['balance'][0]:
+            messagebox.showerror('USD: Обмен валют', '{} {} {}'.format('Для покупки USD не хватает', round(float(summ_of_buy_spinbox.get())*variables['usd_buy'][7], 2) - variables['balance'][0], 'RUB'))
 
-        if confirmation == True:
-            usd_bought = variables['usd_bought'][0] + float(summ_of_buy_spinbox.get())
-            balance_change = variables['balance'][0] - float(summ_of_buy_spinbox.get())*variables['usd_buy'][7]
-            variables['balance'] = [balance_change]
-            variables['usd_bought'] = [usd_bought]
-            variables.sync()
-            usd_buy.destroy()
+        else:
+            confirmation = messagebox.askyesno('Предупреждение', '{} {} {} {} {}'.format('Купить', float(summ_of_buy_spinbox.get()), 'USD за', round(float(summ_of_buy_spinbox.get())*variables['usd_buy'][7], 2), 'RUB?'))
+
+            if confirmation == True:
+                usd_bought = variables['usd_bought'][0] + float(summ_of_buy_spinbox.get())
+                balance_change = variables['balance'][0] - float(summ_of_buy_spinbox.get())*variables['usd_buy'][7]
+                variables['balance'] = [balance_change]
+                variables['usd_bought'] = [usd_bought]
+                variables.sync()
+                usd_buy.destroy()
 
     button_buy = Button(usd_buy, text='Купить', command=buy_confirmation)
     button_buy.grid(column=2, row=0)
@@ -54,15 +58,19 @@ def eur():
     summ_of_buy_spinbox.grid(column=1, row=0)
 
     def buy_confirmation():
-        confirmation = messagebox.askyesno('Предупреждение', '{} {} {} {} {}'.format('Купить', float(summ_of_buy_spinbox.get()), 'EUR за', round(float(summ_of_buy_spinbox.get())*variables['eur_buy'][7], 2), 'RUB?'))
+        if round(float(summ_of_buy_spinbox.get())*variables['eur_buy'][7], 2) > variables['balance'][0]:
+            messagebox.showerror('EUR: Обмен валют', '{} {} {}'.format('Для покупки EUR не хватает', round(float(summ_of_buy_spinbox.get())*variables['eur_buy'][7], 2) - variables['balance'][0], 'RUB'))
 
-        if confirmation == True:
-            eur_bought = variables['eur_bought'][0] + float(summ_of_buy_spinbox.get())
-            balance_change = variables['balance'][0] - float(summ_of_buy_spinbox.get())*variables['eur_buy'][7]
-            variables['balance'] = [balance_change]
-            variables['eur_bought'] = [eur_bought]
-            variables.sync()
-            eur_buy.destroy()
+        else:
+            confirmation = messagebox.askyesno('Предупреждение', '{} {} {} {} {}'.format('Купить', float(summ_of_buy_spinbox.get()), 'EUR за', round(float(summ_of_buy_spinbox.get())*variables['eur_buy'][7], 2), 'RUB?'))
+
+            if confirmation == True:
+                eur_bought = variables['eur_bought'][0] + float(summ_of_buy_spinbox.get())
+                balance_change = variables['balance'][0] - float(summ_of_buy_spinbox.get())*variables['eur_buy'][7]
+                variables['balance'] = [balance_change]
+                variables['eur_bought'] = [eur_bought]
+                variables.sync()
+                eur_buy.destroy()
 
     button_buy = Button(eur_buy, text='Купить', command=buy_confirmation)
     button_buy.grid(column=2, row=0)
@@ -87,15 +95,19 @@ def chf():
     summ_of_buy_spinbox.grid(column=1, row=0)
 
     def buy_confirmation():
-        confirmation = messagebox.askyesno('Предупреждение', '{} {} {} {} {}'.format('Купить', float(summ_of_buy_spinbox.get()), 'CHF за', round(float(summ_of_buy_spinbox.get())*variables['chf_buy'][7], 2), 'RUB?'))
+        if round(float(summ_of_buy_spinbox.get())*variables['chf_buy'][7], 2) > variables['balance'][0]:
+            messagebox.showerror('CHF: Обмен валют', '{} {} {}'.format('Для покупки CHF не хватает', round(float(summ_of_buy_spinbox.get())*variables['chf_buy'][7], 2) - variables['balance'][0], 'RUB'))
 
-        if confirmation == True:
-            chf_bought = variables['chf_bought'][0] + float(summ_of_buy_spinbox.get())
-            balance_change = variables['balance'][0] - float(summ_of_buy_spinbox.get())*variables['chf_buy'][7]
-            variables['balance'] = [balance_change]
-            variables['chf_bought'] = [chf_bought]
-            variables.sync()
-            chf_buy.destroy()
+        else:
+            confirmation = messagebox.askyesno('Предупреждение', '{} {} {} {} {}'.format('Купить', float(summ_of_buy_spinbox.get()), 'CHF за', round(float(summ_of_buy_spinbox.get())*variables['chf_buy'][7], 2), 'RUB?'))
+
+            if confirmation == True:
+                chf_bought = variables['chf_bought'][0] + float(summ_of_buy_spinbox.get())
+                balance_change = variables['balance'][0] - float(summ_of_buy_spinbox.get())*variables['chf_buy'][7]
+                variables['balance'] = [balance_change]
+                variables['chf_bought'] = [chf_bought]
+                variables.sync()
+                chf_buy.destroy()
 
     button_buy = Button(chf_buy, text='Купить', command=buy_confirmation)
     button_buy.grid(column=2, row=0)
@@ -120,15 +132,19 @@ def gbp():
     summ_of_buy_spinbox.grid(column=1, row=0)
 
     def buy_confirmation():
-        confirmation = messagebox.askyesno('Предупреждение', '{} {} {} {} {}'.format('Купить', float(summ_of_buy_spinbox.get()), 'GBP за', round(float(summ_of_buy_spinbox.get())*variables['gbp_buy'][7], 2), 'RUB?'))
+        if round(float(summ_of_buy_spinbox.get())*variables['gbp_buy'][7], 2) > variables['balance'][0]:
+            messagebox.showerror('GBP: Обмен валют', '{} {} {}'.format('Для покупки GBP не хватает', round(float(summ_of_buy_spinbox.get())*variables['gbp_buy'][7], 2) - variables['balance'][0], 'RUB'))
 
-        if confirmation == True:
-            gbp_bought = variables['gbp_bought'][0] + float(summ_of_buy_spinbox.get())
-            balance_change = variables['balance'][0] - float(summ_of_buy_spinbox.get())*variables['gbp_buy'][7]
-            variables['balance'] = [balance_change]
-            variables['gbp_bought'] = [gbp_bought]
-            variables.sync()
-            gbp_buy.destroy()
+        else:
+            confirmation = messagebox.askyesno('Предупреждение', '{} {} {} {} {}'.format('Купить', float(summ_of_buy_spinbox.get()), 'GBP за', round(float(summ_of_buy_spinbox.get())*variables['gbp_buy'][7], 2), 'RUB?'))
+
+            if confirmation == True:
+                gbp_bought = variables['gbp_bought'][0] + float(summ_of_buy_spinbox.get())
+                balance_change = variables['balance'][0] - float(summ_of_buy_spinbox.get())*variables['gbp_buy'][7]
+                variables['balance'] = [balance_change]
+                variables['gbp_bought'] = [gbp_bought]
+                variables.sync()
+                gbp_buy.destroy()
 
     button_buy = Button(gbp_buy, text='Купить', command=buy_confirmation)
     button_buy.grid(column=2, row=0)
@@ -153,15 +169,19 @@ def jpy():
     summ_of_buy_spinbox.grid(column=1, row=0)
 
     def buy_confirmation():
-        confirmation = messagebox.askyesno('Предупреждение', '{} {} {} {} {}'.format('Купить', float(summ_of_buy_spinbox.get()), 'JPY за', round(float(summ_of_buy_spinbox.get())*variables['jpy_buy'][7], 2), 'RUB?'))
+        if round(float(summ_of_buy_spinbox.get())*variables['jpy_buy'][7], 2) > variables['balance'][0]:
+            messagebox.showerror('JPY: Обмен валют', '{} {} {}'.format('Для покупки JPY не хватает', round(float(summ_of_buy_spinbox.get())*variables['jpy_buy'][7], 2) - variables['balance'][0], 'RUB'))
 
-        if confirmation == True:
-            jpy_bought = variables['jpy_bought'][0] + float(summ_of_buy_spinbox.get())
-            balance_change = variables['balance'][0] - float(summ_of_buy_spinbox.get())*variables['jpy_buy'][7]
-            variables['balance'] = [balance_change]
-            variables['jpy_bought'] = [jpy_bought]
-            variables.sync()
-            jpy_buy.destroy()
+        else:
+            confirmation = messagebox.askyesno('Предупреждение', '{} {} {} {} {}'.format('Купить', float(summ_of_buy_spinbox.get()), 'JPY за', round(float(summ_of_buy_spinbox.get())*variables['jpy_buy'][7], 2), 'RUB?'))
+
+            if confirmation == True:
+                jpy_bought = variables['jpy_bought'][0] + float(summ_of_buy_spinbox.get())
+                balance_change = variables['balance'][0] - float(summ_of_buy_spinbox.get())*variables['jpy_buy'][7]
+                variables['balance'] = [balance_change]
+                variables['jpy_bought'] = [jpy_bought]
+                variables.sync()
+                jpy_buy.destroy()
 
     button_buy = Button(jpy_buy, text='Купить', command=buy_confirmation)
     button_buy.grid(column=2, row=0)
@@ -187,15 +207,19 @@ def gazprom():
     summ_of_buy_spinbox.grid(column=1, row=0)
 
     def buy_confirmation():
-        confirmation = messagebox.askyesno('Предупреждение', '{} {} {} {} {}'.format('Купить', summ_of_buy_spinbox.get(), 'шт. акции Gazprom за', round(float(summ_of_buy_spinbox.get())*variables['gazprom'][7], 2), 'RUB?'))
+        if round(float(summ_of_buy_spinbox.get())*variables['gazprom'][7], 2) > variables['balance'][0]:
+            messagebox.showerror('Gazprom: Покупка акций', '{} {} {}'.format('Для покупки акций Gazprom не хватает', round(float(summ_of_buy_spinbox.get())*variables['gazprom'][7], 2) - variables['balance'][0], 'RUB'))
 
-        if confirmation == True:
-            gazprom_bought = variables['gazprom_bought_pcs'][0] + int(summ_of_buy_spinbox.get())
-            balance_change = variables['balance'][0] - float(summ_of_buy_spinbox.get())*variables['gazprom'][7]
-            variables['balance'] = [balance_change]
-            variables['gazprom_bought_pcs'] = [gazprom_bought]
-            variables.sync()
-            gazprom_buy.destroy()
+        else:
+            confirmation = messagebox.askyesno('Предупреждение', '{} {} {} {} {}'.format('Купить', summ_of_buy_spinbox.get(), 'шт. акции Gazprom за', round(float(summ_of_buy_spinbox.get())*variables['gazprom'][7], 2), 'RUB?'))
+
+            if confirmation == True:
+                gazprom_bought = variables['gazprom_bought_pcs'][0] + int(summ_of_buy_spinbox.get())
+                balance_change = variables['balance'][0] - float(summ_of_buy_spinbox.get())*variables['gazprom'][7]
+                variables['balance'] = [balance_change]
+                variables['gazprom_bought_pcs'] = [gazprom_bought]
+                variables.sync()
+                gazprom_buy.destroy()
 
     button_buy = Button(gazprom_buy, text='Купить', command=buy_confirmation)
     button_buy.grid(column=2, row=0)
@@ -220,15 +244,19 @@ def avtovaz():
     summ_of_buy_spinbox.grid(column=1, row=0)
 
     def buy_confirmation():
-        confirmation = messagebox.askyesno('Предупреждение', '{} {} {} {} {}'.format('Купить', summ_of_buy_spinbox.get(), 'шт. акции Avtovaz за', round(float(summ_of_buy_spinbox.get())*variables['avtovaz'][7], 2), 'RUB?'))
+        if round(float(summ_of_buy_spinbox.get())*variables['avtovaz'][7], 2) > variables['balance'][0]:
+            messagebox.showerror('Avtovaz: Покупка акций', '{} {} {}'.format('Для покупки акций Avtovaz не хватает', round(float(summ_of_buy_spinbox.get())*variables['avtovaz'][7], 2) - variables['balance'][0], 'RUB'))
 
-        if confirmation == True:
-            avtovaz_bought = variables['avtovaz_bought_pcs'][0] + int(summ_of_buy_spinbox.get())
-            balance_change = variables['balance'][0] - float(summ_of_buy_spinbox.get())*variables['avtovaz'][7]
-            variables['balance'] = [balance_change]
-            variables['avtovaz_bought_pcs'] = [avtovaz_bought]
-            variables.sync()
-            avtovaz_buy.destroy()
+        else:
+            confirmation = messagebox.askyesno('Предупреждение', '{} {} {} {} {}'.format('Купить', summ_of_buy_spinbox.get(), 'шт. акции Avtovaz за', round(float(summ_of_buy_spinbox.get())*variables['avtovaz'][7], 2), 'RUB?'))
+
+            if confirmation == True:
+                avtovaz_bought = variables['avtovaz_bought_pcs'][0] + int(summ_of_buy_spinbox.get())
+                balance_change = variables['balance'][0] - float(summ_of_buy_spinbox.get())*variables['avtovaz'][7]
+                variables['balance'] = [balance_change]
+                variables['avtovaz_bought_pcs'] = [avtovaz_bought]
+                variables.sync()
+                avtovaz_buy.destroy()
 
     button_buy = Button(avtovaz_buy, text='Купить', command=buy_confirmation)
     button_buy.grid(column=2, row=0)
@@ -243,7 +271,7 @@ def aeroflot():
     variables = shelve.open('variables.dat')
     
     aeroflot_buy=Toplevel()
-    aeroflot_buy.title('Gazprom: Покупка акций')
+    aeroflot_buy.title('Aeroflot: Покупка акций')
     aeroflot_buy.geometry('300x25')
 
     summ_of_buy_label = Label(aeroflot_buy, text='Количество')
@@ -253,15 +281,19 @@ def aeroflot():
     summ_of_buy_spinbox.grid(column=1, row=0)
 
     def buy_confirmation():
-        confirmation = messagebox.askyesno('Предупреждение', '{} {} {} {} {}'.format('Купить', summ_of_buy_spinbox.get(), 'шт. акции Aeroflot за', round(float(summ_of_buy_spinbox.get())*variables['aeroflot'][7], 2), 'RUB?'))
+        if round(float(summ_of_buy_spinbox.get())*variables['aeroflot'][7], 2) > variables['balance'][0]:
+            messagebox.showerror('Aeroflot: Покупка акций', '{} {} {}'.format('Для покупки акций Aeroflot не хватает', round(float(summ_of_buy_spinbox.get())*variables['aeroflot'][7], 2) - variables['balance'][0], 'RUB'))
 
-        if confirmation == True:
-            aeroflot_bought = variables['aeroflot_bought_pcs'][0] + int(summ_of_buy_spinbox.get())
-            balance_change = variables['balance'][0] - float(summ_of_buy_spinbox.get())*variables['aeroflot'][7]
-            variables['balance'] = [balance_change]
-            variables['aeroflot_bought_pcs'] = [aeroflot_bought]
-            variables.sync()
-            aeroflot_buy.destroy()
+        else:
+            confirmation = messagebox.askyesno('Предупреждение', '{} {} {} {} {}'.format('Купить', summ_of_buy_spinbox.get(), 'шт. акции Aeroflot за', round(float(summ_of_buy_spinbox.get())*variables['aeroflot'][7], 2), 'RUB?'))
+
+            if confirmation == True:
+                aeroflot_bought = variables['aeroflot_bought_pcs'][0] + int(summ_of_buy_spinbox.get())
+                balance_change = variables['balance'][0] - float(summ_of_buy_spinbox.get())*variables['aeroflot'][7]
+                variables['balance'] = [balance_change]
+                variables['aeroflot_bought_pcs'] = [aeroflot_bought]
+                variables.sync()
+                aeroflot_buy.destroy()
 
     button_buy = Button(aeroflot_buy, text='Купить', command=buy_confirmation)
     button_buy.grid(column=2, row=0)
@@ -286,15 +318,19 @@ def nornickel():
     summ_of_buy_spinbox.grid(column=1, row=0)
 
     def buy_confirmation():
-        confirmation = messagebox.askyesno('Предупреждение', '{} {} {} {} {}'.format('Купить', summ_of_buy_spinbox.get(), 'шт. акции Nornickel за', round(float(summ_of_buy_spinbox.get())*variables['nornickel'][7], 2), 'RUB?'))
+        if round(float(summ_of_buy_spinbox.get())*variables['nornickel'][7], 2) > variables['balance'][0]:
+            messagebox.showerror('Nornickel: Покупка акций', '{} {} {}'.format('Для покупки акций Nornickel не хватает', round(float(summ_of_buy_spinbox.get())*variables['nornickel'][7], 2) - variables['balance'][0], 'RUB'))
 
-        if confirmation == True:
-            nornickel_bought = variables['nornickel_bought_pcs'][0] + int(summ_of_buy_spinbox.get())
-            balance_change = variables['balance'][0] - float(summ_of_buy_spinbox.get())*variables['nornickel'][7]
-            variables['balance'] = [balance_change]
-            variables['nornickel_bought_pcs'] = [nornickel_bought]
-            variables.sync()
-            nornickel_buy.destroy()
+        else:
+            confirmation = messagebox.askyesno('Предупреждение', '{} {} {} {} {}'.format('Купить', summ_of_buy_spinbox.get(), 'шт. акции Nornickel за', round(float(summ_of_buy_spinbox.get())*variables['nornickel'][7], 2), 'RUB?'))
+
+            if confirmation == True:
+                nornickel_bought = variables['nornickel_bought_pcs'][0] + int(summ_of_buy_spinbox.get())
+                balance_change = variables['balance'][0] - float(summ_of_buy_spinbox.get())*variables['nornickel'][7]
+                variables['balance'] = [balance_change]
+                variables['nornickel_bought_pcs'] = [nornickel_bought]
+                variables.sync()
+                nornickel_buy.destroy()
 
     button_buy = Button(nornickel_buy, text='Купить', command=buy_confirmation)
     button_buy.grid(column=2, row=0)
@@ -309,7 +345,7 @@ def lukoil():
     variables = shelve.open('variables.dat')
     
     lukoil_buy=Toplevel()
-    lukoil_buy.title('lukoil: Покупка акций')
+    lukoil_buy.title('Lukoil: Покупка акций')
     lukoil_buy.geometry('300x25')
 
     summ_of_buy_label = Label(lukoil_buy, text='Количество')
@@ -319,15 +355,19 @@ def lukoil():
     summ_of_buy_spinbox.grid(column=1, row=0)
 
     def buy_confirmation():
-        confirmation = messagebox.askyesno('Предупреждение', '{} {} {} {} {}'.format('Купить', summ_of_buy_spinbox.get(), 'шт. акции Lukoil за', round(float(summ_of_buy_spinbox.get())*variables['lukoil'][7], 2), 'RUB?'))
+        if round(float(summ_of_buy_spinbox.get())*variables['lukoil'][7], 2) > variables['balance'][0]:
+            messagebox.showerror('Lukoil: Покупка акций', '{} {} {}'.format('Для покупки акций Lukoil не хватает', round(float(summ_of_buy_spinbox.get())*variables['lukoil'][7], 2) - variables['balance'][0], 'RUB'))
 
-        if confirmation == True:
-            lukoil_bought = variables['lukoil_bought_pcs'][0] + int(summ_of_buy_spinbox.get())
-            balance_change = variables['balance'][0] - float(summ_of_buy_spinbox.get())*variables['lukoil'][7]
-            variables['balance'] = [balance_change]
-            variables['lukoil_bought_pcs'] = [lukoil_bought]
-            variables.sync()
-            lukoil_buy.destroy()
+        else:
+            confirmation = messagebox.askyesno('Предупреждение', '{} {} {} {} {}'.format('Купить', summ_of_buy_spinbox.get(), 'шт. акции Lukoil за', round(float(summ_of_buy_spinbox.get())*variables['lukoil'][7], 2), 'RUB?'))
+
+            if confirmation == True:
+                lukoil_bought = variables['lukoil_bought_pcs'][0] + int(summ_of_buy_spinbox.get())
+                balance_change = variables['balance'][0] - float(summ_of_buy_spinbox.get())*variables['lukoil'][7]
+                variables['balance'] = [balance_change]
+                variables['lukoil_bought_pcs'] = [lukoil_bought]
+                variables.sync()
+                lukoil_buy.destroy()
 
     button_buy = Button(lukoil_buy, text='Купить', command=buy_confirmation)
     button_buy.grid(column=2, row=0)

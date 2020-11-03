@@ -1,36 +1,33 @@
+#==========================================
 #Модуль window_main
 #Главное окно программы
-
-#Модули
-
-#Модули для создания GUI
 #==========================================
+#Модули
+#------------------------------------------
+#Модули для создания GUI
 from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox
-#==========================================
-
+#------------------------------------------
 #Модуль для генерации псевдослучайных чисел
-#==========================================
 import random
-#==========================================
-
+#------------------------------------------
 #Модуль для создания файла сохранения
-#==========================================
 import shelve
-#==========================================
-
+#------------------------------------------
+#Прочие модули
 import reset             
 import window_details    
 import window_buy
 import window_sale
 import next_day
 import about
-
+#------------------------------------------
 #Переменные
 variables = shelve.open('variables.dat')
 spread = random.random()
-
+#==========================================
+#Основная часть
 def init():    
     def update():
         window_main.title('{} {} {} {} {} {}'.format('День', variables['day'][0], '|', 'Баланс:', round(variables['balance'][0], 2), 'RUB'))
@@ -75,7 +72,7 @@ def init():
     window_main=Tk()
     window_main.title('{} {} {} {} {} {}'.format('День', variables['day'][0], '|', 'Баланс:', round(variables['balance'][0], 2), 'RUB'))
     window_main.geometry('600x320')
-    
+    window_main.resizable(False, False)
     
     #Создание меню
     menu = Menu(window_main)
@@ -101,8 +98,7 @@ def init():
         
     tabs.add(tab_currency, text='Валюта')
     tabs.add(tab_stocks, text='Акции')
-
-        
+    
     tabs.pack(expand=1, fill='both')
 
     #Интерфейс вкладки "Валюта"
@@ -198,7 +194,6 @@ def init():
     column3 = Label(tab_stocks, text='Куплено (шт.)', padx=5, pady=5)
     column3.grid(column=2, row=0)
         
-
     gazprom_label = Label(tab_stocks, text='Gazprom')
     gazprom_label.grid(column=0, row=1)
     gazprom_price_label = Label(tab_stocks, text=round(variables['gazprom'][7], 2))
@@ -267,3 +262,4 @@ def init():
     update()
     
     window_main.mainloop()
+#==========================================
